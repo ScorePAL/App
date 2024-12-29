@@ -5,6 +5,7 @@ import 'package:mobile_app/model/Match/i_match.dart';
 import 'package:mobile_app/model/Match/match_state.dart';
 import 'package:mobile_app/model/Team/i_team.dart';
 
+import '../../AppColors.dart';
 import '../../model/Player/player.dart';
 
 class MatchWidgetDecorator with IMatch {
@@ -94,7 +95,7 @@ class MatchWidgetDecorator with IMatch {
 
   Text getStateInterface() {
     String value = "";
-    Color textColor = Colors.textColor;
+    Color textColor = AppColors.textColor;
 
     switch (state) {
       case MatchState.notStarted:
@@ -102,30 +103,30 @@ class MatchWidgetDecorator with IMatch {
         break;
       case MatchState.firstHalf:
         value = "🎥 45'";
-        textColor = Colors.secondaryColor;
+        textColor = AppColors.secondaryColor;
         break;
       case MatchState.secondHalf:
         value = "🎥 90'";
-        textColor = Colors.secondaryColor;
+        textColor = AppColors.secondaryColor;
         break;
       case MatchState.halfTime:
         value = "Half-time";
-        textColor = Colors.secondaryColor;
+        textColor = AppColors.secondaryColor;
         break;
       case MatchState.penalty:
         value = "Penalty";
-        textColor = Colors.secondaryColor;
+        textColor = AppColors.secondaryColor;
         break;
       case MatchState.finished:
         if (teamScore > opponentScore) {
           value = "Victory";
-          textColor = Colors.live;
+          textColor = AppColors.liveColor;
         } else if (teamScore < opponentScore) {
           value = "Defeat";
-          textColor = Colors.secondaryColor;
+          textColor = AppColors.secondaryColor;
         } else {
           value = "Draw";
-          textColor = Colors.textColor;
+          textColor = AppColors.textColor;
         }
         break;
     }

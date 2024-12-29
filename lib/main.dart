@@ -3,6 +3,7 @@ import 'package:mobile_app/model/Match/i_match.dart';
 import 'package:mobile_app/model/Match/match.dart';
 import 'package:mobile_app/view/Match/home_screen_match_widget.dart';
 
+import 'AppColors.dart';
 import 'model/Team/i_team.dart';
 import 'model/Team/team.dart';
 import 'model/User/role.dart';
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
     match.coach = "Jean Dupont";
 
     return Scaffold(
-      backgroundColor: Colors.backgroundColor,
+      backgroundColor: AppColors.backgroundColor,
       body: Column(
         children: [
           Center(
@@ -74,10 +75,10 @@ class _HomePageState extends State<HomePage> {
                   child:
                   Text(
                     "Vamos Vamos",
-                    style: TextStyle(fontSize: 50, color: Colors.textColor),
+                    style: TextStyle(fontSize: 50, color: AppColors.textColor),
                   ),
                 ),
-                Text("Bienvenue {username}", style: TextStyle(fontSize: 20, color: Colors.textColor)),
+                Text("Bienvenue {username}", style: TextStyle(fontSize: 20, color: AppColors.textColor)),
               ],
             ),
           ),
@@ -86,7 +87,7 @@ class _HomePageState extends State<HomePage> {
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Résultats de cette semaine :", style: TextStyle(fontSize: 20, color: Colors.textColor)),
+                Text("Résultats de cette semaine :", style: TextStyle(fontSize: 20, color: AppColors.textColor)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [

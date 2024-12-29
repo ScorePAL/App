@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/model/Match/i_match.dart';
-import 'package:mobile_app/model/Match/match_state.dart';
 import 'package:mobile_app/view/Match/match_widget_decorator.dart';
 import 'package:mobile_app/viewmodel/Home/home_screen_match_widget_viewmodel.dart';
 import 'package:provider/provider.dart';
+
+import '../../AppColors.dart';
 
 class HomeScreenMatchWidget extends StatelessWidget {
   final IMatch match;
@@ -39,7 +40,7 @@ class MatchWidgetContent extends StatelessWidget {
       margin: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.02),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Colors.widgetBackground,
+        color: AppColors.widgetBackground,
       ),
       child: Padding(
         padding: EdgeInsets.only(left: 15, right: 15),
@@ -51,7 +52,7 @@ class MatchWidgetContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(viewModel.team.logo, width: height * 0.6, height: height * 0.6),
-                Text(viewModel.team.name, style: TextStyle(fontSize: 20, color: Colors.textColor)),
+                Text(viewModel.team.name, style: TextStyle(fontSize: 20, color: AppColors.textColor)),
               ],
             ),
             _buildScoreColumn(viewModel.teamScore, viewModel.opponentScore, viewModel.getStateInterface()),
@@ -59,7 +60,7 @@ class MatchWidgetContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(viewModel.opponent.logo, width: height * 0.6, height: height * 0.6),
-                Text(viewModel.opponent.name, style: TextStyle(fontSize: 20, color: Colors.textColor)),
+                Text(viewModel.opponent.name, style: TextStyle(fontSize: 20, color: AppColors.textColor)),
               ],
             ),
           ],
@@ -69,16 +70,14 @@ class MatchWidgetContent extends StatelessWidget {
   }
 
   Widget _buildScoreColumn(int teamScore, int opponentScore, Text matchState) {
-    TextStyle infosStyle = TextStyle(fontSize: 15, color: Colors.textColor);
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
           children: [
-            Text(teamScore.toString(), style: TextStyle(fontSize: 25, color: Colors.textColor)),
-            Text(" - ", style: TextStyle(fontSize: 25, color: Colors.textColor)),
-            Text(opponentScore.toString(), style: TextStyle(fontSize: 25, color: Colors.textColor)),
+            Text(teamScore.toString(), style: TextStyle(fontSize: 25, color: AppColors.textColor)),
+            Text(" - ", style: TextStyle(fontSize: 25, color: AppColors.textColor)),
+            Text(opponentScore.toString(), style: TextStyle(fontSize: 25, color: AppColors.textColor)),
           ],
         ),
         matchState,
