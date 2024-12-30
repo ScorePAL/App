@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_app/model/Match/i_match.dart';
 import 'package:mobile_app/model/Match/match.dart';
 import 'package:mobile_app/view/Match/home_screen_match_widget.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
-import 'AppColors.dart';
+import 'app/app_colors.dart';
 import 'model/Team/i_team.dart';
 import 'model/Team/team.dart';
 import 'model/User/role.dart';
@@ -42,6 +43,27 @@ class _HomePageState extends State<HomePage> {
   _HomePageState({required this.user});
 
   final User user;
+  late WebSocketChannel _channel;
+  SnackBar? _snackBar = new SnackBar(content: Text(""));
+
+  @override
+  void initState() {
+    super.initState();
+    // Remplacez l'URL par celle de votre serveur WebSocket
+    _channel = WebSocketChannel.connect(Uri.parse('ws://localhost:8080/ws'));
+    // Écoute des messages
+    _channel.stream.listen((message) {
+      setState(() {
+        _snackBar = SnackBar(content: Text(message));
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _channel.sink.close(1001);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,42 +87,49 @@ class _HomePageState extends State<HomePage> {
     match.coach = "Jean Dupont";
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
-      body: Column(
-        children: [
-          Center(
-            child: Column(
-              children: <Widget>[
-                Padding(padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).width * 0.15),
-                  child:
-                  Text(
-                    "Vamos Vamos",
-                    style: TextStyle(fontSize: 50, color: AppColors.textColor),
+        backgroundColor: AppColors.backgroundColor,
+        body: Column(
+          children: [
+            Center(
+              child: Column(
+                children: <Widget>[
+                  Padding(padding: EdgeInsets.only(top: MediaQuery
+                      .sizeOf(context)
+                      .width * 0.15),
+                    child:
+                    Text(
+                      "Vamos Vamos",
+                      style: TextStyle(
+                          fontSize: 50, color: AppColors.textColor),
+                    ),
                   ),
-                ),
-                Text("Bienvenue {username}", style: TextStyle(fontSize: 20, color: AppColors.textColor)),
-              ],
+                  Text("Bienvenue {username}", style: TextStyle(
+                      fontSize: 20, color: AppColors.textColor)),
+                ],
+              ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.03),
-            child:Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Résultats de cette semaine :", style: TextStyle(fontSize: 20, color: AppColors.textColor)),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    HomeScreenMatchWidget(match),
-                    HomeScreenMatchWidget(match),
-                    HomeScreenMatchWidget(match),
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
-      )
+            Container(
+              margin: EdgeInsets.only(top: MediaQuery
+                  .sizeOf(context)
+                  .height * 0.03),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Résultats de cette semaine :", style: TextStyle(
+                      fontSize: 20, color: AppColors.textColor)),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      HomeScreenMatchWidget(match),
+                      HomeScreenMatchWidget(match),
+                      HomeScreenMatchWidget(match),
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        )
     );
   }
 }

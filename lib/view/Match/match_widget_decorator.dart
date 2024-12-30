@@ -5,7 +5,7 @@ import 'package:mobile_app/model/Match/i_match.dart';
 import 'package:mobile_app/model/Match/match_state.dart';
 import 'package:mobile_app/model/Team/i_team.dart';
 
-import '../../AppColors.dart';
+import '../../app/app_colors.dart';
 import '../../model/Player/player.dart';
 
 class MatchWidgetDecorator with IMatch {

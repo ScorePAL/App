@@ -4,7 +4,7 @@ import 'package:mobile_app/view/Match/match_widget_decorator.dart';
 import 'package:mobile_app/viewmodel/Home/home_screen_match_widget_viewmodel.dart';
 import 'package:provider/provider.dart';
 
-import '../../AppColors.dart';
+import '../../app/app_colors.dart';
 
 class HomeScreenMatchWidget extends StatelessWidget {
   final IMatch match;
