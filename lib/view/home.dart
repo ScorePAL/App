@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.only(
                         top: MediaQuery.sizeOf(context).width * 0.15),
                     child: Text(
-                      "Vamos Vamos",
+                      "ScorePAL",
                       style:
                       TextStyle(fontSize: 50, color: AppColors.textColor),
                     ),
