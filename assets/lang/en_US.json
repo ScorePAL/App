@@ -1,4 +1,4 @@
 {
-  "weekMatches":  "The matches of the week",
-  "Welcome": "Welcome"
+  "welcome": "Welcome",
+  "weekMatches":  "The matches of the week"
 }

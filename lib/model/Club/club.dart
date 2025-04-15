@@ -1,6 +1,4 @@
-import 'package:mobile_app/model/Club/i_club.dart';
-
-class Club with IClub {
+class Club {
   late int _clubId;
   late String _name;
   late String _logoUrl;

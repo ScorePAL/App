@@ -1,5 +1,5 @@
-import 'package:mobile_app/model/Player/player.dart';
-import 'package:mobile_app/model/Match/match_state.dart';
+import 'package:score_pal/model/Player/player.dart';
+import 'package:score_pal/model/Match/match_state.dart';
 
 import '../Team/i_team.dart';
 

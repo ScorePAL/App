@@ -1,15 +1,16 @@
-import 'package:flutter/cupertino.dart';
-import 'package:mobile_app/model/Data/match_repository.dart';
-import 'package:mobile_app/model/api_client.dart';
-import 'package:mobile_app/view/Match/match_widget_decorator.dart';
+import 'package:flutter/material.dart';
+import 'package:score_pal/model/Data/match_repository.dart';
+import 'package:score_pal/model/api_client.dart';
+import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
 
 import '../../model/Match/i_match.dart';
 import '../../model/Team/i_team.dart';
 import '../../model/Match/match_state.dart';
+import '../../view/LiveMatch/match_screen.dart';
 
 class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
   final IMatch _match;
-  final MatchRepository repository = MatchRepository(ApiClient('http://localhost:3000'));
+  final MatchRepository _repository = MatchRepository(ApiClient('http://localhost:3000'));
 
   HomeScreenMatchWidgetViewModel(this._match);
 
@@ -32,6 +33,8 @@ class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
   int get id => _match.id;
 
   bool get isHome => _match.isHome;
+
+  IMatch get match => _match;
 
   set address(String value) {
     _match.address = value;
@@ -90,12 +93,19 @@ class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
 
   Future<void> updateMatchScore() async {
     try {
-      await repository.updateScore(_match);
+      await _repository.updateScore(_match);
 
       notifyListeners();
     } catch (e) {
       // Gérer les erreurs ici (log ou affichage d'un message à l'utilisateur)
       throw Exception('Error updating match score: $e');
     }
+  }
+
+  void displayMatch(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MatchScreen(match: _match)),
+    );
   }
 }

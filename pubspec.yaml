@@ -1,4 +1,4 @@
-name: mobile_app
+name: score_pal
 description: "A mobile app to manage a football team and analyse their stats"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -37,6 +37,9 @@ dependencies:
   provider: ^6.1.2
   http: ^1.2.2
   web_socket_channel: ^2.2.0
+  get_it: ^7.6.4
+  universal_html: ^2.2.4
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
@@ -56,4 +59,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/
+    - assets/images/teams/
+    - assets/images/match/
+    - assets/images/scorepal/
+    - assets/lang/

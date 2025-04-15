@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/view/home.dart';
+import 'package:flutter/services.dart';
+import 'package:score_pal/view/Home/home.dart';
+import 'package:score_pal/viewmodel/ModelsVM/user_viewmodel.dart';
 
 import 'model/Club/club.dart';
 import 'model/User/role.dart';
 import 'model/User/user.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); // <- cette ligne est essentielle
+
   Club club = Club();
   club.id = 1;
   User user = User("John", "Doe", 25, Role.admin, club, "fr_FR");
@@ -20,8 +24,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
-      home: HomePage(user),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(UserViewModel(user)),
     );
   }
 }

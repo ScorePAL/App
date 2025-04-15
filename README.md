@@ -1,6 +1,6 @@
 <div style="text-align: center;">
 <h1>ScorePAL</h1>
-<img alt="ScorePAL" src="assets/images/scorepal/logo-inline.png" >
+<img alt="ScorePAL" src="assets/images/scorepal/icon-inline.png" >
 <p>A mobile app to manage a football team and analyse their statistics</p>
 <a href="https://choosealicense.com/licenses/mit/"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-green.svg"></a>
 <a href="https://opensource.org/licenses/"><img alt="GPLv3 License" src="https://img.shields.io/badge/License-GPL%20v3-yellow.svg"></a>
@@ -13,7 +13,7 @@
 
 ## Tech Stack
 
-**Client:** Flutter 3.27.3 (Dart 3.6.1)
+**Client:** Flutter 3.29.2 (Dart 3.6.1)
 
 **Server:** ASP.Net (.Net 8), MySQL
 

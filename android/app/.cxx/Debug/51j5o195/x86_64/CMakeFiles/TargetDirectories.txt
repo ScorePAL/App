@@ -1,0 +1,2 @@
+/home/sacha/Dev/App/android/app/.cxx/Debug/51j5o195/x86_64/CMakeFiles/edit_cache.dir
+/home/sacha/Dev/App/android/app/.cxx/Debug/51j5o195/x86_64/CMakeFiles/rebuild_cache.dir

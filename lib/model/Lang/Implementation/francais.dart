@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:mobile_app/model/Lang/language.dart';
+import 'package:score_pal/model/Lang/language.dart';
 
 class Francais implements Language {
   final Map<String, String> _translations = {};

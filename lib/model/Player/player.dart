@@ -1,7 +1,6 @@
-import 'package:mobile_app/model/Player/i_player.dart';
-import 'package:mobile_app/model/Player/positions.dart';
+import 'package:score_pal/model/Player/positions.dart';
 
-class Player with IPlayer {
+class Player {
   late int _id;
   late String _firstName;
   late String _lastName;

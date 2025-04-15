@@ -1,15 +1,15 @@
-import 'package:mobile_app/model/Lang/language.dart';
+import 'package:score_pal/model/Lang/language.dart';
 
 import '../Club/club.dart';
 import '../Lang/language_factory.dart';
 import 'role.dart';
 
 class User {
-  String _firstName;
-  String _lastName;
-  int _age;
-  Role _role;
-  Club _relatedTo;
+  final String _firstName;
+  final String _lastName;
+  final int _age;
+  final Role _role;
+  final Club _relatedTo;
   late Language lang;
 
   User(this._firstName, this._lastName, this._age, this._role, this._relatedTo, String lang) {
