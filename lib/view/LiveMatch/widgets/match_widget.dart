@@ -64,7 +64,7 @@ class _MatchContent extends StatelessWidget {
           padding: EdgeInsets.only(top: 10),
           child: viewModel.selectedState.first == InterfaceState.lineup
               ? LineupWidget(match: viewModel.match)
-              : Text("debug"),
+              : Text("debug", style: TextStyle(color: Colors.white, fontSize: 40),),
         ),
       ],
     );
