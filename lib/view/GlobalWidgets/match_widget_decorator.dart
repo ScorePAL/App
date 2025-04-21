@@ -2,93 +2,94 @@ import 'package:flutter/material.dart';
 import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/model/Match/match_state.dart';
 import 'package:score_pal/model/Team/i_team.dart';
+import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 
 import '../../../app/app_colors.dart';
 import '../../../model/Player/player.dart';
 
-class MatchWidgetDecorator with IMatch {
-  final IMatch match;
+class MatchWidgetDecorator {
+  final MatchViewModel match;
 
   MatchWidgetDecorator(this.match);
 
   @override
-  get team => match.team;
+  ITeam get team => match.match.team;
 
   @override
-  get teamScore => match.teamScore;
+  int get teamScore => match.match.teamScore;
 
   @override
-  get opponentScore => match.opponentScore;
+  int get opponentScore => match.match.opponentScore;
 
   @override
-  get state => match.state;
+  MatchState get state => match.match.state;
 
   @override
-  get opponent => match.opponent;
+  ITeam get opponent => match.match.opponent;
 
   @override
-  get date => match.date;
+  DateTime get date => match.match.date;
 
   @override
-  get address => match.address;
+  String get address => match.match.address;
 
   @override
-  get coach => match.coach;
+  String get coach => match.match.coach;
 
   @override
-  get id => match.id;
+  int get id => match.match.id;
 
   @override
-  get isHome => match.isHome;
+  bool get isHome => match.match.isHome;
 
   @override
   set address(String value) {
-    match.address = value;
+    match.match.address = value;
   }
 
   @override
   set date(DateTime value) {
-    match.date = value;
+    match.match.date = value;
   }
 
   @override
   set opponent(ITeam value) {
-    match.opponent = value;
+    match.match.opponent = value;
   }
 
   @override
   set opponentScore(int value) {
-    match.opponentScore = value;
+    match.match.opponentScore = value;
   }
 
   @override
   set state(MatchState value) {
-    match.state = value;
+    match.match.state = value;
   }
 
   @override
   set team(ITeam value) {
-    match.team = value;
+    match.match.team = value;
   }
 
   @override
   set teamScore(int value) {
-    match.teamScore = value;
+    match.match.teamScore = value;
   }
 
   @override
   set coach(String value) {
-    match.coach = value;
+    match.match.coach = value;
   }
 
   @override
   set id(int value) {
-    match.id = value;
+    match.match.id = value;
   }
 
   @override
   set isHome(bool value) {
-    match.isHome = value;
+    match.match.isHome = value;
   }
 
   Text getStateInterface() {
@@ -133,10 +134,10 @@ class MatchWidgetDecorator with IMatch {
   }
 
   @override
-  List<Player> get lineUp => match.lineUp;
+  List<Player> get lineUp => match.match.lineUp;
 
   @override
   set lineUp(List<Player> value) {
-    match.lineUp = value;
+    match.match.lineUp = value;
   }
 }

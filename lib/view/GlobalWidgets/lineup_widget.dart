@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:score_pal/model/Match/i_match.dart';
+import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 import 'package:score_pal/viewmodel/lineup_widget_viewmodel.dart';
 
 class LineupWidget extends StatelessWidget {
-  final IMatch match;
+  final MatchViewModel match;
 
   const LineupWidget({super.key, required this.match});
 

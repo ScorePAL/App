@@ -3,11 +3,12 @@ import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
 import 'package:score_pal/viewmodel/Home/home_screen_match_widget_viewmodel.dart';
 import 'package:provider/provider.dart';
+import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 
 import '../../app/app_colors.dart';
 
 class LiveScoreMatchWidget extends StatelessWidget {
-  final IMatch match;
+  final MatchViewModel match;
 
   const LiveScoreMatchWidget(this.match, {super.key});
 

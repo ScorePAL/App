@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:score_pal/app/app_colors.dart';
-import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/view/GlobalWidgets/live_score_match_widget.dart';
-import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
 import 'package:score_pal/view/LiveMatch/widgets/match_widget.dart';
 import 'package:score_pal/viewmodel/Match/match_screen_viewmodel.dart';
+import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 
 class MatchScreen extends StatelessWidget {
-  final IMatch match;
+  final MatchViewModel match;
 
   const MatchScreen({super.key, required this.match});
 
@@ -41,7 +40,7 @@ class _MatchScreenState extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            LiveScoreMatchWidget(MatchWidgetDecorator(viewModel.match)),
+            LiveScoreMatchWidget(viewModel.match),
             // Match lineup
             Padding(
               padding: const EdgeInsets.only(top: 15),

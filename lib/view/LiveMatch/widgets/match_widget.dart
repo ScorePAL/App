@@ -3,9 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/view/GlobalWidgets/lineup_widget.dart';
 import 'package:score_pal/viewmodel/Match/team_lineup_widget_viewmodel.dart';
+import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 
 class MatchWidget extends StatelessWidget {
-  final IMatch match;
+  final MatchViewModel match;
 
   const MatchWidget(this.match, {super.key});
 

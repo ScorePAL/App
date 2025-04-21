@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:score_pal/model/Data/match_repository.dart';
 import 'package:score_pal/model/api_client.dart';
 import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
+import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 
 import '../../model/Match/i_match.dart';
 import '../../model/Team/i_team.dart';
@@ -9,10 +10,12 @@ import '../../model/Match/match_state.dart';
 import '../../view/LiveMatch/match_screen.dart';
 
 class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
-  final IMatch _match;
+  final MatchWidgetDecorator _match;
   final MatchRepository _repository = MatchRepository(ApiClient('http://localhost:3000'));
 
   HomeScreenMatchWidgetViewModel(this._match);
+
+  MatchViewModel get match => _match.match;
 
   ITeam get team => _match.team;
 
@@ -33,8 +36,6 @@ class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
   int get id => _match.id;
 
   bool get isHome => _match.isHome;
-
-  IMatch get match => _match;
 
   set address(String value) {
     _match.address = value;
@@ -77,7 +78,7 @@ class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
   }
 
   Text getStateInterface() {
-    var m = MatchWidgetDecorator(_match);
+    var m = MatchWidgetDecorator(_match.match);
     return m.getStateInterface();
   }
 
@@ -93,7 +94,7 @@ class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
 
   Future<void> updateMatchScore() async {
     try {
-      await _repository.updateScore(_match);
+      await _repository.updateScore(_match.match.match);
 
       notifyListeners();
     } catch (e) {
@@ -105,7 +106,7 @@ class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
   void displayMatch(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MatchScreen(match: _match)),
+      MaterialPageRoute(builder: (context) => MatchScreen(match: _match.match)),
     );
   }
 }

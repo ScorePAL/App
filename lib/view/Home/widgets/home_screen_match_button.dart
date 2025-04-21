@@ -5,9 +5,10 @@ import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/view/GlobalWidgets/live_score_match_widget.dart';
 import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
 import 'package:score_pal/viewmodel/Home/home_screen_match_widget_viewmodel.dart';
+import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 
 class HomeScreenMatchButton extends StatelessWidget {
-  final IMatch match;
+  final MatchViewModel match;
 
   const HomeScreenMatchButton({super.key, required this.match});
 
@@ -43,7 +44,7 @@ class _HomeScreenMatchButtonContent extends StatelessWidget {
           fixedSize:WidgetStateProperty.resolveWith((states) {
             return Size(width, height);
           }),
-          shape: WidgetStateOutlinedBorder.resolveWith((states) {
+          shape: WidgetStateProperty.resolveWith((states) {
             return RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
               side: BorderSide(
