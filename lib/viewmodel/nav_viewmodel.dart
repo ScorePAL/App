@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:score_pal/app/app_colors.dart';
 
 import 'ModelsVM/user_viewmodel.dart';
 
@@ -12,30 +13,30 @@ class NavViewModel extends ChangeNotifier {
 
   int get currentIndex => _currentIndex;
 
-  Color get backgroundColor {
-    switch (_currentIndex) {
-      case 0:
-        return Colors.white;
-      case 1:
-        return Colors.blue.shade50;
-      default:
-        return Colors.white;
-    }
-  }
-
-  Color getIconColor(String key) {
+  IconData getIcon(String key) {
     switch (key) {
       case "home":
-        return _currentIndex == 0 ? Colors.blue : Colors.grey;
+        return _currentIndex == 0 ? Icons.home : Icons.home_outlined;
       case "settings":
-        return _currentIndex == 1 ? Colors.blue : Colors.grey;
+        return _currentIndex == 1 ? Icons.settings : Icons.settings_outlined;
       default:
-        return Colors.grey;
+        return Icons.error; // Default icon if key is not recognized
     }
   }
 
   void setIndex(int index) {
     _currentIndex = index;
     notifyListeners();
+  }
+
+  getIconColor(String s) {
+    switch (s) {
+      case "home":
+        return _currentIndex == 0 ? AppColors.mainColor : Colors.white;
+      case "settings":
+        return _currentIndex == 1 ? AppColors.mainColor : Colors.white;
+      default:
+        return Colors.white; // Default color if key is not recognized
+    }
   }
 }

@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:score_pal/app/app_colors.dart';
 import 'package:score_pal/view/GlobalWidgets/navbar_widget.dart';
 import 'package:score_pal/view/Home/home.dart';
 import 'package:score_pal/viewmodel/ModelsVM/user_viewmodel.dart';
@@ -27,15 +29,21 @@ class _MainScreenContent extends StatelessWidget {
 
     final views = [
       HomePage(viewModel.user),
-      const Center(child: Text("Settings")),
+      const Center(child: Text("Settings", style: TextStyle(color: Colors.white),)),
     ];
 
     return Scaffold(
-      backgroundColor: viewModel.backgroundColor,
+      backgroundColor: AppColors.widgetBackground,
       body: views[viewModel.currentIndex],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
+      floatingActionButton: SizedBox(
+        height: 60,
+        width: 60,
+        child: FloatingActionButton(
+          backgroundColor: AppColors.mainColor,
+          shape: CircleBorder(),
+          onPressed: () {},
+          child: Icon(Icons.add, size: 36, color: Colors.white,),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: NavBarWidget(),
