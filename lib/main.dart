@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:score_pal/view/Home/home.dart';
+import 'package:score_pal/view/main_screen.dart';
 import 'package:score_pal/viewmodel/ModelsVM/user_viewmodel.dart';
 
 import 'model/Club/club.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(UserViewModel(user)),
+      home: MainScreen(UserViewModel(user)),
     );
   }
 }
