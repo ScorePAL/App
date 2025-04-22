@@ -1,3 +1,4 @@
+import 'package:score_pal/model/Played/played.dart';
 import 'package:score_pal/model/Player/player.dart';
 import 'package:score_pal/model/Match/match_state.dart';
 
@@ -87,10 +88,19 @@ mixin IMatch {
   set state(MatchState value);
 
   /// The line-up of the team.
-  List<Player> get lineUp;
+  List<Played> get lineup;
 
   /// Set the line-up of the team.
   ///
   /// **value** : the line-up of the team.
-  set lineUp(List<Player> value);
+  set lineup(List<Played> value);
+
+  /// The formation of the team.
+  /// ex: 4-4-2, 4-3-3, 3-5-2...
+  String get formation;
+
+  /// Set the formation of the team.
+  ///
+  /// **value** : the formation of the team.
+  set formation(String value);
 }

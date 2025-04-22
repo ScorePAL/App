@@ -1,5 +1,5 @@
 import 'package:score_pal/model/Match/i_match.dart';
-import 'package:score_pal/model/Player/player.dart';
+import 'package:score_pal/model/Played/played.dart';
 import 'package:score_pal/model/Match/match_state.dart';
 
 import '../Team/i_team.dart';
@@ -15,7 +15,8 @@ class Match with IMatch {
   late bool _isHome;
   late String _coach;
   late MatchState _state;
-  late List<Player> _lineup;
+  late List<Played> _lineup;
+  late String _formation;
 
   @override
   int get id => _id;
@@ -98,10 +99,18 @@ class Match with IMatch {
   }
 
   @override
-  List<Player> get lineUp => _lineup;
+  List<Played> get lineup => _lineup;
 
   @override
-  set lineUp(List<Player> value) {
+  set lineup(List<Played> value) {
     _lineup = value;
+  }
+
+  @override
+  String get formation => _formation;
+
+  @override
+  set formation(String value) {
+    _formation = value;
   }
 }
