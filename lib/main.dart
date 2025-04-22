@@ -15,6 +15,7 @@ void main() {
   club.id = 1;
   User user = User("John", "Doe", 25, Role.admin, club, "fr_FR");
   runApp(MyApp(user));
+  User user = User("John", "Doe", 25, Role.admin, club);
 }
 
 class MyApp extends StatelessWidget {

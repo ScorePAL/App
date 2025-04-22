@@ -4,8 +4,8 @@ class Assets {
 
   static const String imagesLogo = 'assets/images/icon.png';
   static const String imagesOpponentLogo = 'assets/images/opponent_logo.png';
-  static const String langEnUS = 'assets/lang/en_US.json';
-  static const String langFrFR = 'assets/lang/fr_FR.json';
+  static const String langEnUS = 'assets/langs/en.json';
+  static const String langFrFR = 'assets/langs/fr.json';
   static const String scorepalLogo = 'assets/images/scorepal/icon.png';
 
 }

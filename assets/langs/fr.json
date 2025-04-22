@@ -1,0 +1,9 @@
+{
+  "welcome": "Bienvenue {user}",
+  "weekMatches":  "Les matchs de cette semaine",
+  "matches": "Matchs",
+  "teams": "Equipes",
+  "players": "Joueurs",
+  "highlights": "Temps forts",
+  "lineup": "Composition"
+}
