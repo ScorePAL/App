@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:score_pal/app/app_colors.dart';
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(fontSize: 50, color: AppColors.textColor),
                   ),
                 ),
-                Text("Bienvenue ${_viewModel.getUsername}",
+                Text("welcome".tr(namedArgs: {"user": _viewModel.getUsername}),
                     style: TextStyle(fontSize: 20, color: AppColors.textColor)),
               ],
             ),
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Les matchs de la semaine",
+                Text("weekMatches".tr(),
                     style: TextStyle(fontSize: 20, color: AppColors.textColor)),
                 Column(
                   spacing: MediaQuery.sizeOf(context).height * 0.02,

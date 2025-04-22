@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:score_pal/model/Match/i_match.dart';
@@ -50,10 +51,11 @@ class _MatchContent extends StatelessWidget {
           segments: [
             ButtonSegment(
                 value: InterfaceState.lineup,
-                label: _getLabelWithStyle(Text('Lineup'))),
+                label: _getLabelWithStyle(Text('lineup'.tr()))),
             ButtonSegment(
-                value: InterfaceState.history,
-                label: _getLabelWithStyle(Text('History'))),
+              value: InterfaceState.history,
+              label: _getLabelWithStyle(Text('highlights'.tr())),
+            ),
           ],
           selected: viewModel.selectedState,
           onSelectionChanged: (Set<InterfaceState> newSelection) {
@@ -64,7 +66,10 @@ class _MatchContent extends StatelessWidget {
           padding: EdgeInsets.only(top: 10),
           child: viewModel.selectedState.first == InterfaceState.lineup
               ? LineupWidget(match: viewModel.match)
-              : Text("debug", style: TextStyle(color: Colors.white, fontSize: 40),),
+              : Text(
+                  "debug",
+                  style: TextStyle(color: Colors.white, fontSize: 40),
+                ),
         ),
       ],
     );
