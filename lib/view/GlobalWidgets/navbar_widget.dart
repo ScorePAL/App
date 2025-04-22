@@ -20,6 +20,11 @@ class NavBarWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           IconButton(
+            iconSize: 40, // optionnel ici si déjà dans Icon()
+            constraints: BoxConstraints(
+              minHeight: 60,
+              minWidth: 60,
+            ),
             icon: Icon(viewModel.getIcon("home"),
                 size: 40,
                 color: viewModel.getIconColor("home")),
@@ -27,6 +32,11 @@ class NavBarWidget extends StatelessWidget {
           ),
           const SizedBox(), // espace pour le FAB
           IconButton(
+            iconSize: 40, // optionnel ici si déjà dans Icon()
+            constraints: BoxConstraints(
+              minHeight: 60,
+              minWidth: 60,
+            ),
             icon: Icon(viewModel.getIcon("settings"),
                 size: 40,
                 color: viewModel.getIconColor("settings")),
