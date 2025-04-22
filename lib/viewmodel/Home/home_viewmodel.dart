@@ -4,6 +4,7 @@ import 'package:score_pal/model/Match/match.dart';
 import 'package:score_pal/model/Match/match_state.dart';
 import 'package:score_pal/model/Played/played.dart';
 import 'package:score_pal/model/Player/player.dart';
+import 'package:score_pal/model/Player/positions.dart';
 import 'package:score_pal/model/Team/i_team.dart';
 import 'package:score_pal/viewmodel/ModelsVM/user_viewmodel.dart';
 import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
@@ -46,6 +47,28 @@ class HomeViewModel extends ChangeNotifier {
       Played played = Played();
       played.player = player;
       played.jerseyNumber = i + 1;
+
+      if (i == 1) {
+        played.position = Positions.goalkeeper;
+      }
+      if (i == 2 || i == 3) {
+        played.position = Positions.wingback;
+      }
+      if (i == 4 || i == 5) {
+        played.position = Positions.centerback;
+      }
+      if (i == 6 || i == 8) {
+        played.position = Positions.defensiveMidfielder;
+      }
+      if (i == 11 || i == 9) {
+        played.position = Positions.centerForward;
+      }
+      if (i == 10 || i == 7) {
+        played.position = Positions.offensiveMidfielder;
+      } else {
+        played.position = Positions.centerback;
+      }
+
       match.lineup.add(played);
     }
 

@@ -1,12 +1,13 @@
 enum Positions {
   goalkeeper,
-  rightBack,
-  leftBack,
-  centerBack,
+  wingback,
+  centerback,
   defensiveMidfielder,
-  centralMidfielder,
-  attackingMidfielder,
-  rightWinger,
+  centerMidfielder,
+  sideMidfielder,
+  offensiveMidfielder,
+  hole,
   leftWinger,
-  striker
+  centerForward,
+  rightWinger,
 }
