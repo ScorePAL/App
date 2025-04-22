@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 import 'package:score_pal/viewmodel/lineup_widget_viewmodel.dart';
 
@@ -30,39 +29,30 @@ class _LineupContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AssetImage field = AssetImage('assets/images/match/field.png');
-    
-    double width = MediaQuery.sizeOf(context).width * 0.8;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Container(
-          height: width * 1.85,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: field,
-                fit: BoxFit.cover),
-          ),
-          child: Align(
-            alignment: Alignment.center,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Title",
+
+    // Calculate the available width (80% of screen width)
+    double availableWidth = MediaQuery.of(context).size.width * 0.8;
+
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          SizedBox(
+            width: availableWidth,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Background field image
+                Image(
+                  image: field,
+                  fit: BoxFit.contain,
                 ),
-              ),
+                ...viewModel.getLineup(),
+              ],
             ),
           ),
-        ),
-        Container(
-          padding: EdgeInsets.all(10),
-          child: Text(
-            "Your Big Text ",
-            textAlign: TextAlign.left,
-          ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }

@@ -7,4 +7,8 @@ class MatchViewModel extends ChangeNotifier {
   final IMatch _match;
 
   IMatch get match => _match;
+
+  get lineup => match.lineup;
+
+  String get formation => match.formation;
 }
