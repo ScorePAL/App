@@ -27,7 +27,7 @@ class MatchScreen extends StatelessWidget {
 class _MatchScreenState extends StatelessWidget {
   final MatchScreenViewModel viewModel;
 
-  const _MatchScreenState({super.key, required this.viewModel});
+  const _MatchScreenState({required this.viewModel});
 
   @override
   Widget build(BuildContext context) {

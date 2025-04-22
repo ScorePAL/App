@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:score_pal/view/Home/home.dart';
 import 'package:score_pal/view/main_screen.dart';
 import 'package:score_pal/viewmodel/ModelsVM/user_viewmodel.dart';
 

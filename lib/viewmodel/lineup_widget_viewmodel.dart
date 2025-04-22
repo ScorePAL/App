@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/viewmodel/LineupFactory/lineup_factory.dart';
 import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
 

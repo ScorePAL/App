@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/view/GlobalWidgets/lineup_widget.dart';
 import 'package:score_pal/viewmodel/Match/team_lineup_widget_viewmodel.dart';
 import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';

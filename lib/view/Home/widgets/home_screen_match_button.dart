@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:score_pal/app/app_colors.dart';
-import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/view/GlobalWidgets/live_score_match_widget.dart';
 import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
 import 'package:score_pal/viewmodel/Home/home_screen_match_widget_viewmodel.dart';

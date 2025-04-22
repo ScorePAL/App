@@ -3,11 +3,9 @@ import 'package:score_pal/model/Data/match_repository.dart';
 import 'package:score_pal/model/api_client.dart';
 import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
 import 'package:score_pal/viewmodel/ModelsVM/match_viewmodel.dart';
-
-import '../../model/Match/i_match.dart';
-import '../../model/Team/i_team.dart';
-import '../../model/Match/match_state.dart';
-import '../../view/LiveMatch/match_screen.dart';
+import 'package:score_pal/model/Team/i_team.dart';
+import 'package:score_pal/model/Match/match_state.dart';
+import 'package:score_pal/view/LiveMatch/match_screen.dart';
 
 class HomeScreenMatchWidgetViewModel extends ChangeNotifier {
   final MatchWidgetDecorator _match;

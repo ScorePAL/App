@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/view/GlobalWidgets/match_widget_decorator.dart';
 import 'package:score_pal/viewmodel/Home/home_screen_match_widget_viewmodel.dart';
 import 'package:provider/provider.dart';

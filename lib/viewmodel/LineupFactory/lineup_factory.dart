@@ -1,4 +1,4 @@
-import 'package:score_pal/viewmodel/LineupFactory/LineupFormations/implementations/442_formation.dart';
+import 'package:score_pal/viewmodel/LineupFactory/LineupFormations/implementations/formation_442.dart';
 import 'package:score_pal/viewmodel/LineupFactory/LineupFormations/lineup_formation.dart';
 
 class LineupFactory {

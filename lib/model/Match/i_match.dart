@@ -1,5 +1,4 @@
 import 'package:score_pal/model/Played/played.dart';
-import 'package:score_pal/model/Player/player.dart';
 import 'package:score_pal/model/Match/match_state.dart';
 
 import '../Team/i_team.dart';
