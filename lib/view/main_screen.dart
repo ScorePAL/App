@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:score_pal/app/app_colors.dart';
@@ -9,6 +8,7 @@ import 'package:score_pal/viewmodel/nav_viewmodel.dart';
 
 class MainScreen extends StatelessWidget {
   final UserViewModel _user;
+
   const MainScreen(this._user, {super.key});
 
   @override
@@ -29,20 +29,31 @@ class _MainScreenContent extends StatelessWidget {
 
     final views = [
       HomePage(viewModel.user),
-      const Center(child: Text("Settings", style: TextStyle(color: Colors.white),)),
+      const Center(
+          child: Text(
+        "Settings",
+        style: TextStyle(color: Colors.white),
+      )),
     ];
 
     return Scaffold(
       backgroundColor: AppColors.widgetBackground,
       body: views[viewModel.currentIndex],
-      floatingActionButton: SizedBox(
-        height: 60,
-        width: 60,
-        child: FloatingActionButton(
-          backgroundColor: AppColors.mainColor,
-          shape: CircleBorder(),
-          onPressed: () {},
-          child: Icon(Icons.add, size: 36, color: Colors.white,),
+      floatingActionButton: Transform.translate(
+        offset: Offset(0, 10),
+        child: SizedBox(
+          height: 60,
+          width: 60,
+          child: FloatingActionButton(
+            backgroundColor: AppColors.mainColor,
+            shape: CircleBorder(),
+            onPressed: () {},
+            child: Icon(
+              Icons.add,
+              size: 36,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
