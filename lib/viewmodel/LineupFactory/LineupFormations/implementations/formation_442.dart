@@ -4,10 +4,11 @@ import 'package:score_pal/viewmodel/LineupFactory/LineupFormations/lineup_format
 
 class Formation442 implements LineupFormations {
   @override
-  List<Positioned> getFormation(List<Played> players) {
+  List<Positioned> getFormation(List<Played> players, int width, int height) {
     players.sort((a, b) => (a.position.index).compareTo(b.position.index));
 
     return [
+
     ];
   }
 }

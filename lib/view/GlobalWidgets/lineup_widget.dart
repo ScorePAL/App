@@ -33,25 +33,30 @@ class _LineupContent extends StatelessWidget {
     // Calculate the available width (80% of screen width)
     double availableWidth = MediaQuery.of(context).size.width * 0.8;
 
+    var sizedBox = SizedBox(
+      width: availableWidth,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          // Background field image
+          Image(
+            image: field,
+            fit: BoxFit.contain,
+          ),
+        ],
+      ),
+    );
+
+    var lineup = viewModel.getLineup(sizedBox.width ?? availableWidth, sizedBox.height ?? availableWidth * 1.8);
+
+    if (lineup.isNotEmpty) {
+      (sizedBox.child as Stack).children.addAll(lineup);
+    }
+
     return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(
-            width: availableWidth,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                // Background field image
-                Image(
-                  image: field,
-                  fit: BoxFit.contain,
-                ),
-                ...viewModel.getLineup(),
-              ],
-            ),
-          ),
-        ],
+        children: <Widget>[sizedBox],
       ),
     );
   }

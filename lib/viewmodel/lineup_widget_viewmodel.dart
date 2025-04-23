@@ -8,8 +8,8 @@ class LineupWidgetViewModel extends ChangeNotifier {
 
   LineupWidgetViewModel(this.match);
 
-  List<Positioned> getLineup() {
+  List<Positioned> getLineup(double width, double height) {
     var formation = lineupFactory.getFormation(match.formation);
-    return formation.getFormation(match.lineup);
+    return formation.getFormation(match.lineup, width as int, height as int);
   }
 }
