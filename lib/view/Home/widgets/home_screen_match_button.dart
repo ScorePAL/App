@@ -40,7 +40,7 @@ class _HomeScreenMatchButtonContent extends StatelessWidget {
           backgroundColor: WidgetStateProperty.resolveWith((states) {
             return AppColors.widgetBackground;
           }),
-          fixedSize:WidgetStateProperty.resolveWith((states) {
+          fixedSize: WidgetStateProperty.resolveWith((states) {
             return Size(width, height);
           }),
           shape: WidgetStateProperty.resolveWith((states) {
