@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
 import 'package:score_pal/model/Match/i_match.dart';
 import 'package:score_pal/model/Match/match.dart';
 import 'package:score_pal/model/Match/match_state.dart';
@@ -13,6 +14,9 @@ import 'package:score_pal/model/Team/team.dart';
 class HomeViewModel extends ChangeNotifier {
   final UserViewModel _user;
   late List<MatchViewModel> _matches;
+  int _touchedIndex = -1;
+
+  double _total = 1000;
 
   HomeViewModel(this._user) {
     IMatch match = Match();
@@ -72,7 +76,11 @@ class HomeViewModel extends ChangeNotifier {
       match.lineup.add(played);
     }
 
-    _matches = [MatchViewModel(match), MatchViewModel(match), MatchViewModel(match)];
+    _matches = [
+      MatchViewModel(match),
+      MatchViewModel(match),
+      MatchViewModel(match)
+    ];
   }
 
   UserViewModel get user => _user;
@@ -83,5 +91,52 @@ class HomeViewModel extends ChangeNotifier {
 
   getMatch(int i) {
     return _matches[i];
+  }
+
+  int get touchedIndex => _touchedIndex;
+
+  String get total => _total.round().toString();
+
+  set touchedIndex(int index) {
+    _touchedIndex = index;
+    notifyListeners();
+  }
+
+  /// Returns a list of PieChartSectionData representing the sections of the pie chart.
+  /// It will be replace by data from the API.
+  List<PieChartSectionData> showingStyledSections() {
+    final data = [
+      {'value': 121, 'color': Colors.orange, 'label': 'Goals'},
+      {'value': 100, 'color': Colors.cyan, 'label': 'On Target'},
+      {'value': 514, 'color': Colors.deepPurpleAccent, 'label': 'Off Target'},
+      {'value': 265, 'color': Colors.pinkAccent, 'label': 'Blocked'},
+    ];
+
+    _total = data.fold<double>(0, (sum, item) => sum + (item['value'] as int));
+
+    return List.generate(data.length, (i) {
+      final isTouched = i == touchedIndex;
+      final double fontSize = isTouched ? 16.0 : 14.0;
+      final double radius = isTouched ? 60.0 : 50.0;
+      final value = data[i]['value'] as int;
+      final percentage = ((value / _total) * 100).toStringAsFixed(1);
+
+      return PieChartSectionData(
+        color: data[i]['color'] as Color,
+        value: value.toDouble(),
+        title: '$percentage%',
+        radius: radius,
+        titleStyle: TextStyle(
+          fontSize: fontSize,
+          fontWeight: FontWeight.w600,
+          color: Colors.white,
+        ),
+        badgeWidget: Text(
+          data[i]['label'] as String,
+          style: TextStyle(color: Colors.white, fontSize: 12),
+        ),
+        badgePositionPercentageOffset: 1.2,
+      );
+    });
   }
 }

@@ -5,5 +5,10 @@
   "teams": "Equipes",
   "players": "Joueurs",
   "highlights": "Temps forts",
-  "lineup": "Composition"
+  "lineup": "Composition",
+  "stats": "Statistiques de l’équipe première",
+  "blocked": "Bloqués",
+  "shotsOnTarget": "Cadrés",
+  "shotsOffTarget": "Non cadrés",
+  "goals": "Buts"
 }

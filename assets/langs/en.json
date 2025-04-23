@@ -1,9 +1,14 @@
 {
   "welcome": "Welcome {user}",
-  "weekMatches":  "This week's matches",
+  "weekMatches": "This week's matches",
   "matches": "Matches",
   "teams": "Teams",
   "players": "Players",
   "highlights": "Highlights",
-  "lineup": "Lineup"
+  "lineup": "Lineup",
+  "stats": "First team statistics",
+  "blocked": "Blocked",
+  "shotsOnTarget": "On target",
+  "shotsOffTarget": "Off target",
+  "goals": "Goals"
 }

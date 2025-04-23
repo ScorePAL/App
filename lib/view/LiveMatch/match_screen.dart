@@ -32,12 +32,13 @@ class _MatchScreenState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundColor,
+      appBar: AppBar(
         backgroundColor: AppColors.backgroundColor,
-        appBar: AppBar(
-          backgroundColor: AppColors.backgroundColor,
-          foregroundColor: Colors.white,
-        ),
-        body: Column(
+        foregroundColor: Colors.white,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             LiveScoreMatchWidget(viewModel.match),
@@ -45,8 +46,10 @@ class _MatchScreenState extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 15),
               child: MatchWidget(viewModel.match),
-            )
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
