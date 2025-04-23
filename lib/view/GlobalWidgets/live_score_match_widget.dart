@@ -35,7 +35,7 @@ class _LiveScoreMatchContent extends StatelessWidget {
     double height = MediaQuery.sizeOf(context).height * 0.1;
 
     return Padding(
-      padding: EdgeInsets.only(left: 15, right: 15),
+      padding: EdgeInsets.only(left: 25, right: 25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
